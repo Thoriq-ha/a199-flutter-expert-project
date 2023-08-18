@@ -19,10 +19,10 @@ void main() {
     test('should return success message when insert to database is success',
         () async {
       // arrange
-      when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+      when(mockDatabaseHelper.insertMovieWatchlist(testMovieTable))
           .thenAnswer((_) async => 1);
       // act
-      final result = await dataSource.insertWatchlist(testMovieTable);
+      final result = await dataSource.insertWatchlistMovie(testMovieTable);
       // assert
       expect(result, 'Added to Watchlist');
     });
@@ -30,10 +30,10 @@ void main() {
     test('should throw DatabaseException when insert to database is failed',
         () async {
       // arrange
-      when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+      when(mockDatabaseHelper.insertMovieWatchlist(testMovieTable))
           .thenThrow(Exception());
       // act
-      final call = dataSource.insertWatchlist(testMovieTable);
+      final call = dataSource.insertWatchlistMovie(testMovieTable);
       // assert
       expect(() => call, throwsA(isA<DatabaseException>()));
     });
@@ -43,7 +43,7 @@ void main() {
     test('should return success message when remove from database is success',
         () async {
       // arrange
-      when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+      when(mockDatabaseHelper.removeMovieWatchlist(testMovieTable))
           .thenAnswer((_) async => 1);
       // act
       final result = await dataSource.removeWatchlist(testMovieTable);
@@ -54,7 +54,7 @@ void main() {
     test('should throw DatabaseException when remove from database is failed',
         () async {
       // arrange
-      when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+      when(mockDatabaseHelper.removeMovieWatchlist(testMovieTable))
           .thenThrow(Exception());
       // act
       final call = dataSource.removeWatchlist(testMovieTable);

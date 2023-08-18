@@ -1,7 +1,9 @@
 import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/data/models/tv_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/tv_detail.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -57,3 +59,43 @@ final testMovieMap = {
   'posterPath': 'posterPath',
   'title': 'title',
 };
+
+final testTvTable = TvTable(
+  id: 1,
+  name: 'Name',
+  posterPath: '/path.jpg',
+  overview: 'Overview',
+);
+
+final testTvMap = {
+  'id': 1,
+  'overview': 'Overview',
+  'poster_path': '/path.jpg',
+  'name': 'Name',
+};
+
+final testTvDetail = TvDetail(
+    adult: false,
+    backdropPath: 'backdropPath',
+    episodeRunTime: [1, 2, 3],
+    firstAirDate: "1985-12-30",
+    genres: [Genre(id: 1, name: "Action")],
+    homepage: "homepage",
+    id: 1,
+    inProduction: false,
+    languages: ["en"],
+    lastAirDate: "1988-05-23",
+    name: "Name",
+    numberOfEpisodes: 1,
+    numberOfSeasons: 1,
+    originCountry: ["US"],
+    originalLanguage: "en",
+    originalName: "Original Name",
+    overview: "Overview",
+    popularity: 1.0,
+    posterPath: "/path.jpg",
+    status: "Status",
+    tagline: "tagline",
+    type: "type",
+    voteAverage: 1.0,
+    voteCount: 1);

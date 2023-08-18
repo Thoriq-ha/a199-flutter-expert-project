@@ -1,3 +1,4 @@
+import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
@@ -41,27 +42,72 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<WatchlistMovieNotifier>(
-          builder: (context, data, child) {
-            if (data.watchlistState == RequestState.Loading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (data.watchlistState == RequestState.Loaded) {
-              return ListView.builder(
-                itemBuilder: (context, index) {
-                  final movie = data.watchlistMovies[index];
-                  return MovieCard(movie);
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Movie",
+              style: kHeading6,
+            ),
+            Expanded(
+              child: Consumer<WatchlistMovieNotifier>(
+                builder: (context, data, child) {
+                  if (data.watchlistState == RequestState.Loading) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (data.watchlistState == RequestState.Loaded) {
+                    if (data.watchlistMovies.length == 0) {
+                      return Center(child: Text("No Watchlist yet"));
+                    }
+                    return ListView.builder(
+                      itemBuilder: (context, index) {
+                        final movie = data.watchlistMovies[index];
+                        return MovieCard(movie);
+                      },
+                      itemCount: data.watchlistMovies.length,
+                    );
+                  } else {
+                    return Center(
+                      key: Key('error_message'),
+                      child: Text(data.message),
+                    );
+                  }
                 },
-                itemCount: data.watchlistMovies.length,
-              );
-            } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text(data.message),
-              );
-            }
-          },
+              ),
+            ),
+            Text(
+              "Tv",
+              style: kHeading6,
+            ),
+            Expanded(
+              child: Consumer<WatchlistMovieNotifier>(
+                builder: (context, data, child) {
+                  if (data.watchlistState == RequestState.Loading) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (data.watchlistState == RequestState.Loaded) {
+                    if (data.watchlistMovies.length == 0) {
+                      return Center(child: Text("No Watchlist yet"));
+                    }
+                    return ListView.builder(
+                      itemBuilder: (context, index) {
+                        final movie = data.watchlistMovies[index];
+                        return MovieCard(movie);
+                      },
+                      itemCount: data.watchlistMovies.length,
+                    );
+                  } else {
+                    return Center(
+                      key: Key('error_message'),
+                      child: Text(data.message),
+                    );
+                  }
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
