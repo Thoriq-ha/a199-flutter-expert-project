@@ -9,7 +9,6 @@ import '../../helpers/test_helper.mocks.dart';
 void main() {
   late GetPopularTv usecase;
   late MockTvRepository mockTvRepository;
-  ;
 
   setUp(() {
     mockTvRepository = MockTvRepository();
