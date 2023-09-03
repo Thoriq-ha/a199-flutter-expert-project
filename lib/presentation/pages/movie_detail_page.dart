@@ -103,7 +103,7 @@ class DetailContent extends StatelessWidget {
                           children: [
                             Text(
                               movie.title,
-                              style: kHeading5,
+                              style: headlineSmall,
                             ),
                             ElevatedButton(
                               onPressed: () async {
@@ -175,7 +175,7 @@ class DetailContent extends StatelessWidget {
                             SizedBox(height: 16),
                             Text(
                               'Overview',
-                              style: kHeading6,
+                              style: titleLarge,
                             ),
                             Text(
                               movie.overview,
@@ -183,7 +183,7 @@ class DetailContent extends StatelessWidget {
                             SizedBox(height: 16),
                             Text(
                               'Recommendations',
-                              style: kHeading6,
+                              style: titleLarge,
                             ),
                             Consumer<MovieDetailNotifier>(
                               builder: (context, data, child) {

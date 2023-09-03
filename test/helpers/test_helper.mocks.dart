@@ -559,6 +559,23 @@ class MockTvRepository extends _i1.Mock implements _i18.TvRepository {
         )),
       ) as _i7.Future<_i2.Either<_i8.Failure, List<_i19.Tv>>>);
   @override
+  _i7.Future<_i2.Either<_i8.Failure, List<_i19.Tv>>> getTvRecommendations(
+          dynamic id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getTvRecommendations,
+          [id],
+        ),
+        returnValue: _i7.Future<_i2.Either<_i8.Failure, List<_i19.Tv>>>.value(
+            _FakeEither_0<_i8.Failure, List<_i19.Tv>>(
+          this,
+          Invocation.method(
+            #getTvRecommendations,
+            [id],
+          ),
+        )),
+      ) as _i7.Future<_i2.Either<_i8.Failure, List<_i19.Tv>>>);
+  @override
   _i7.Future<_i2.Either<_i8.Failure, String>> saveWatchlistTv(
           _i20.TvDetail? tv) =>
       (super.noSuchMethod(
@@ -666,6 +683,15 @@ class MockTvRemoteDataSource extends _i1.Mock
           ),
         )),
       ) as _i7.Future<_i4.TvDetailResponse>);
+  @override
+  _i7.Future<List<_i22.TvModel>> getTvRecommendations(int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getTvRecommendations,
+          [id],
+        ),
+        returnValue: _i7.Future<List<_i22.TvModel>>.value(<_i22.TvModel>[]),
+      ) as _i7.Future<List<_i22.TvModel>>);
   @override
   _i7.Future<List<_i22.TvModel>> searchTv(String? query) => (super.noSuchMethod(
         Invocation.method(

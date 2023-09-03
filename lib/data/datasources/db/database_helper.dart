@@ -45,7 +45,7 @@ class DatabaseHelper {
       CREATE TABLE  $_tblTvWatchlist (
         id INTEGER PRIMARY KEY,
         name TEXT,
-        posterPath TEXT,
+        poster_path TEXT,
         overview TEXT
       );
     ''');

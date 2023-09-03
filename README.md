@@ -1,4 +1,4 @@
 ##Dicoding project
 
 Overall coverage rate:
-  lines......: 88.7% (1135 of 1279 lines)
+  lines......: 86.2% (1124 of 1304 lines)

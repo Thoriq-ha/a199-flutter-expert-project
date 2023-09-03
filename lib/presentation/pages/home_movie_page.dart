@@ -92,7 +92,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
             children: [
               Text(
                 'Now Playing',
-                style: kHeading6,
+                style: titleLarge,
               ),
               Consumer<MovieListNotifier>(builder: (context, data, child) {
                 final state = data.nowPlayingState;
@@ -153,7 +153,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
       children: [
         Text(
           title,
-          style: kHeading6,
+          style: titleLarge,
         ),
         InkWell(
           onTap: onTap,

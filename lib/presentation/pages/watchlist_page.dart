@@ -54,7 +54,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
             children: [
               Text(
                 "Movie",
-                style: kHeading6,
+                style: titleLarge,
               ),
               Consumer<WatchlistMovieNotifier>(
                 builder: (context, data, child) {
@@ -88,7 +88,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
               ),
               Text(
                 "Tv",
-                style: kHeading6,
+                style: titleLarge,
               ),
               Consumer<WatchlistMovieNotifier>(
                 builder: (context, data, child) {
