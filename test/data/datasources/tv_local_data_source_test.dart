@@ -24,7 +24,6 @@ void main() {
       // act
       final result = await dataSource.insertWatchlistTv(testTvTable);
       // assert
-      print(result);
       expect(result, 'Added to Watchlist');
     });
 
@@ -40,62 +39,62 @@ void main() {
     });
   });
 
-  // group('remove tv watchlist', () {
-  //   test('should return success message when remove from database is success',
-  //       () async {
-  //     // arrange
-  //     when(mockDatabaseHelper.removeTvWatchlist(testTvTable))
-  //         .thenAnswer((_) async => 1);
-  //     // act
-  //     final result = await dataSource.removeWatchlist(testTvTable);
-  //     // assert
-  //     expect(result, 'Removed from Watchlist');
-  //   });
+  group('remove tv watchlist', () {
+    test('should return success message when remove from database is success',
+        () async {
+      // arrange
+      when(mockDatabaseHelper.removeTvWatchlist(testTvTable))
+          .thenAnswer((_) async => 1);
+      // act
+      final result = await dataSource.removeWatchlistTv(testTvTable);
+      // assert
+      expect(result, 'Removed from Watchlist');
+    });
 
-  //   test('should throw DatabaseException when remove from database is failed',
-  //       () async {
-  //     // arrange
-  //     when(mockDatabaseHelper.removeTvWatchlist(testTvTable))
-  //         .thenThrow(Exception());
-  //     // act
-  //     final call = dataSource.removeWatchlist(testTvTable);
-  //     // assert
-  //     expect(() => call, throwsA(isA<DatabaseException>()));
-  //   });
-  // });
+    test('should throw DatabaseException when remove from database is failed',
+        () async {
+      // arrange
+      when(mockDatabaseHelper.removeTvWatchlist(testTvTable))
+          .thenThrow(Exception());
+      // act
+      final call = dataSource.removeWatchlistTv(testTvTable);
+      // assert
+      expect(() => call, throwsA(isA<DatabaseException>()));
+    });
+  });
 
-  // group('Get Tv Detail By Id', () {
-  //   final tId = 1;
+  group('Get Tv Detail By Id', () {
+    final tId = 1;
 
-  //   test('should return Tv Detail Table when data is found', () async {
-  //     // arrange
-  //     when(mockDatabaseHelper.getTvById(tId))
-  //         .thenAnswer((_) async => testTvMap);
-  //     // act
-  //     final result = await dataSource.getTvById(tId);
-  //     // assert
-  //     expect(result, testTvTable);
-  //   });
+    test('should return Tv Detail Table when data is found', () async {
+      // arrange
+      when(mockDatabaseHelper.getTvById(tId))
+          .thenAnswer((_) async => testTvMap);
+      // act
+      final result = await dataSource.getTvById(tId);
+      // assert
+      expect(result, testTvTable);
+    });
 
-  //   test('should return null when data is not found', () async {
-  //     // arrange
-  //     when(mockDatabaseHelper.getTvById(tId)).thenAnswer((_) async => null);
-  //     // act
-  //     final result = await dataSource.getTvById(tId);
-  //     // assert
-  //     expect(result, null);
-  //   });
-  // });
+    test('should return null when data is not found', () async {
+      // arrange
+      when(mockDatabaseHelper.getTvById(tId)).thenAnswer((_) async => null);
+      // act
+      final result = await dataSource.getTvById(tId);
+      // assert
+      expect(result, null);
+    });
+  });
 
-  // group('get watchlist movies', () {
-  //   test('should return list of TvTable from database', () async {
-  //     // arrange
-  //     when(mockDatabaseHelper.getWatchlistTv())
-  //         .thenAnswer((_) async => [testTvMap]);
-  //     // act
-  //     final result = await dataSource.getWatchlistTv();
-  //     // assert
-  //     expect(result, [testTvTable]);
-  //   });
-  // });
+  group('get watchlist movies', () {
+    test('should return list of TvTable from database', () async {
+      // arrange
+      when(mockDatabaseHelper.getWatchlistTv())
+          .thenAnswer((_) async => [testTvMap]);
+      // act
+      final result = await dataSource.getWatchlistTv();
+      // assert
+      expect(result, [testTvTable]);
+    });
+  });
 }

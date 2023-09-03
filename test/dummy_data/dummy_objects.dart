@@ -3,6 +3,7 @@ import 'package:ditonton/data/models/tv_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
 
 final testMovie = Movie(
@@ -99,3 +100,20 @@ final testTvDetail = TvDetail(
     type: "type",
     voteAverage: 1.0,
     voteCount: 1);
+
+final testTv = Tv(
+  backdropPath: "backdropPath",
+  firstAirDate: "firstAirDate",
+  genreIds: [1, 2, 3],
+  id: 1,
+  name: "name",
+  originCountry: ["originCountry1", "originCountry1", "originCountry1"],
+  originalLanguage: "originalLanguage",
+  originalName: "originalName",
+  overview: "overview",
+  popularity: 1.0,
+  posterPath: "posterPath",
+  voteAverage: 1.0,
+  voteCount: 1,
+);
+final testTvList = [testTv];

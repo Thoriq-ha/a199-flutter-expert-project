@@ -51,7 +51,6 @@ class TvListNotifier extends ChangeNotifier {
       (tvData) {
         _nowPlayingState = RequestState.Loaded;
         _nowPlayingTv = tvData;
-        print(tvData);
         notifyListeners();
       },
     );

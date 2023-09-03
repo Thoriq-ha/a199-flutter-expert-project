@@ -238,9 +238,9 @@ class MockMovieRepository extends _i1.Mock implements _i6.MovieRepository {
         )),
       ) as _i7.Future<_i2.Either<_i8.Failure, String>>);
   @override
-  _i7.Future<bool> isAddedToWatchlist(int? id) => (super.noSuchMethod(
+  _i7.Future<bool> isAddedToWatchlistMovie(int? id) => (super.noSuchMethod(
         Invocation.method(
-          #isAddedToWatchlist,
+          #isAddedToWatchlistMovie,
           [id],
         ),
         returnValue: _i7.Future<bool>.value(false),
@@ -442,6 +442,32 @@ class MockDatabaseHelper extends _i1.Mock implements _i15.DatabaseHelper {
         ),
         returnValue: _i7.Future<int>.value(0),
       ) as _i7.Future<int>);
+  @override
+  _i7.Future<int> removeTvWatchlist(_i17.TvTable? tv) => (super.noSuchMethod(
+        Invocation.method(
+          #removeTvWatchlist,
+          [tv],
+        ),
+        returnValue: _i7.Future<int>.value(0),
+      ) as _i7.Future<int>);
+  @override
+  _i7.Future<Map<String, dynamic>?> getTvById(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getTvById,
+          [id],
+        ),
+        returnValue: _i7.Future<Map<String, dynamic>?>.value(),
+      ) as _i7.Future<Map<String, dynamic>?>);
+  @override
+  _i7.Future<List<Map<String, dynamic>>> getWatchlistTv() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getWatchlistTv,
+          [],
+        ),
+        returnValue: _i7.Future<List<Map<String, dynamic>>>.value(
+            <Map<String, dynamic>>[]),
+      ) as _i7.Future<List<Map<String, dynamic>>>);
 }
 
 /// A class which mocks [TvRepository].
@@ -549,6 +575,47 @@ class MockTvRepository extends _i1.Mock implements _i18.TvRepository {
           ),
         )),
       ) as _i7.Future<_i2.Either<_i8.Failure, String>>);
+  @override
+  _i7.Future<_i2.Either<_i8.Failure, String>> removeWatchlistTv(
+          _i20.TvDetail? tv) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #removeWatchlistTv,
+          [tv],
+        ),
+        returnValue: _i7.Future<_i2.Either<_i8.Failure, String>>.value(
+            _FakeEither_0<_i8.Failure, String>(
+          this,
+          Invocation.method(
+            #removeWatchlistTv,
+            [tv],
+          ),
+        )),
+      ) as _i7.Future<_i2.Either<_i8.Failure, String>>);
+  @override
+  _i7.Future<bool> isAddedToWatchlistTv(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #isAddedToWatchlistTv,
+          [id],
+        ),
+        returnValue: _i7.Future<bool>.value(false),
+      ) as _i7.Future<bool>);
+  @override
+  _i7.Future<_i2.Either<_i8.Failure, List<_i19.Tv>>> getWatchlistTv() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getWatchlistTv,
+          [],
+        ),
+        returnValue: _i7.Future<_i2.Either<_i8.Failure, List<_i19.Tv>>>.value(
+            _FakeEither_0<_i8.Failure, List<_i19.Tv>>(
+          this,
+          Invocation.method(
+            #getWatchlistTv,
+            [],
+          ),
+        )),
+      ) as _i7.Future<_i2.Either<_i8.Failure, List<_i19.Tv>>>);
 }
 
 /// A class which mocks [TvRemoteDataSource].
@@ -625,6 +692,30 @@ class MockTvLocalDataSource extends _i1.Mock implements _i23.TvLocalDataSource {
         ),
         returnValue: _i7.Future<String>.value(''),
       ) as _i7.Future<String>);
+  @override
+  _i7.Future<String> removeWatchlistTv(_i17.TvTable? tv) => (super.noSuchMethod(
+        Invocation.method(
+          #removeWatchlistTv,
+          [tv],
+        ),
+        returnValue: _i7.Future<String>.value(''),
+      ) as _i7.Future<String>);
+  @override
+  _i7.Future<_i17.TvTable?> getTvById(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getTvById,
+          [id],
+        ),
+        returnValue: _i7.Future<_i17.TvTable?>.value(),
+      ) as _i7.Future<_i17.TvTable?>);
+  @override
+  _i7.Future<List<_i17.TvTable>> getWatchlistTv() => (super.noSuchMethod(
+        Invocation.method(
+          #getWatchlistTv,
+          [],
+        ),
+        returnValue: _i7.Future<List<_i17.TvTable>>.value(<_i17.TvTable>[]),
+      ) as _i7.Future<List<_i17.TvTable>>);
 }
 
 /// A class which mocks [Client].

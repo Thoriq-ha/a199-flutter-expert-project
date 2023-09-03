@@ -16,7 +16,7 @@ class TvTable extends Equatable {
   });
 
   factory TvTable.fromEntity(TvDetail tv) => TvTable(
-        id: tv.id ?? 1,
+        id: tv.id,
         name: tv.name,
         posterPath: tv.posterPath,
         overview: tv.overview,
