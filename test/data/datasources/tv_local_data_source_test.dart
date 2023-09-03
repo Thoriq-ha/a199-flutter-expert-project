@@ -65,7 +65,6 @@ void main() {
 
   group('Get Tv Detail By Id', () {
     final tId = 1;
-
     test('should return Tv Detail Table when data is found', () async {
       // arrange
       when(mockDatabaseHelper.getTvById(tId))

@@ -117,3 +117,10 @@ final testTv = Tv(
   voteCount: 1,
 );
 final testTvList = [testTv];
+
+final testWatchlistTv = Tv.watchlist(
+  id: 1,
+  name: 'Name',
+  posterPath: '/path.jpg',
+  overview: 'Overview',
+);

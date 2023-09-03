@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">41</td>
             <td class="headerCovTableEntry">51</td>
-            <td class="headerCovTableEntryMed">80.4 %</td>
+            <td class="headerCovTableEntry">51</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-09-03 11:13:52</td>
+            <td class="headerValue">2023-09-03 11:58:48</td>
             <td></td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -162,27 +162,27 @@
 <a name="104"><span class="lineNum">     104 </span>            :     }</a>
 <a name="105"><span class="lineNum">     105 </span>            :   }</a>
 <a name="106"><span class="lineNum">     106 </span>            : </a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineNoCov">          0 :   @override</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">          2 :   @override</span></a>
 <a name="108"><span class="lineNum">     108 </span>            :   Future&lt;Either&lt;Failure, String&gt;&gt; removeWatchlistTv(TvDetail tv) async {</a>
 <a name="109"><span class="lineNum">     109 </span>            :     try {</a>
 <a name="110"><span class="lineNum">     110 </span>            :       final result =</a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineNoCov">          0 :           await localDataSource.removeWatchlistTv(TvTable.fromEntity(tv));</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineNoCov">          0 :       return Right(result);</span></a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineNoCov">          0 :     } on DatabaseException catch (e) {</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineNoCov">          0 :       return Left(DatabaseFailure(e.message));</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          6 :           await localDataSource.removeWatchlistTv(TvTable.fromEntity(tv));</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          2 :       return Right(result);</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">          2 :     } on DatabaseException catch (e) {</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          6 :       return Left(DatabaseFailure(e.message));</span></a>
 <a name="115"><span class="lineNum">     115 </span>            :     }</a>
 <a name="116"><span class="lineNum">     116 </span>            :   }</a>
 <a name="117"><span class="lineNum">     117 </span>            : </a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineNoCov">          0 :   @override</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">          2 :   @override</span></a>
 <a name="119"><span class="lineNum">     119 </span>            :   Future&lt;bool&gt; isAddedToWatchlistTv(int id) async {</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineNoCov">          0 :     final result = await localDataSource.getTvById(id);</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">          4 :     final result = await localDataSource.getTvById(id);</span></a>
 <a name="121"><span class="lineNum">     121 </span>            :     return result != null;</a>
 <a name="122"><span class="lineNum">     122 </span>            :   }</a>
 <a name="123"><span class="lineNum">     123 </span>            : </a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineNoCov">          0 :   @override</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">          2 :   @override</span></a>
 <a name="125"><span class="lineNum">     125 </span>            :   Future&lt;Either&lt;Failure, List&lt;Tv&gt;&gt;&gt; getWatchlistTv() async {</a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineNoCov">          0 :     final result = await localDataSource.getWatchlistTv();</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineNoCov">          0 :     return Right(result.map((data) =&gt; data.toEntity()).toList());</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">          4 :     final result = await localDataSource.getWatchlistTv();</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">         10 :     return Right(result.map((data) =&gt; data.toEntity()).toList());</span></a>
 <a name="128"><span class="lineNum">     128 </span>            :   }</a>
 <a name="129"><span class="lineNum">     129 </span>            : }</a>
 </pre>

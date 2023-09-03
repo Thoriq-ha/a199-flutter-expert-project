@@ -25,14 +25,14 @@ class TvTable extends Equatable {
   factory TvTable.fromMap(Map<String, dynamic> map) => TvTable(
         id: map['id'],
         name: map['name'],
-        posterPath: map['posterPath'],
+        posterPath: map['poster_path'],
         overview: map['overview'],
       );
 
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,
-        'posterPath': posterPath,
+        'poster_path': posterPath,
         'overview': overview,
       };
 

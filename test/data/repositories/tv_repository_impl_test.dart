@@ -251,52 +251,6 @@ void main() {
     });
   });
 
-  // group('Get Movie Recommendations', () {
-  //   final tMovieList = <MovieModel>[];
-  //   final tId = 1;
-
-  //   test('should return data (movie list) when the call is successful',
-  //       () async {
-  //     // arrange
-  //     when(mockRemoteDataSource.getMovieRecommendations(tId))
-  //         .thenAnswer((_) async => tMovieList);
-  //     // act
-  //     final result = await repository.getMovieRecommendations(tId);
-  //     // assert
-  //     verify(mockRemoteDataSource.getMovieRecommendations(tId));
-  //     /* workaround to test List in Right. Issue: https://github.com/spebbe/dartz/issues/80 */
-  //     final resultList = result.getOrElse(() => []);
-  //     expect(resultList, equals(tMovieList));
-  //   });
-
-  //   test(
-  //       'should return server failure when call to remote data source is unsuccessful',
-  //       () async {
-  //     // arrange
-  //     when(mockRemoteDataSource.getMovieRecommendations(tId))
-  //         .thenThrow(ServerException());
-  //     // act
-  //     final result = await repository.getMovieRecommendations(tId);
-  //     // assertbuild runner
-  //     verify(mockRemoteDataSource.getMovieRecommendations(tId));
-  //     expect(result, equals(Left(ServerFailure(''))));
-  //   });
-
-  //   test(
-  //       'should return connection failure when the device is not connected to the internet',
-  //       () async {
-  //     // arrange
-  //     when(mockRemoteDataSource.getMovieRecommendations(tId))
-  //         .thenThrow(SocketException('Failed to connect to the network'));
-  //     // act
-  //     final result = await repository.getMovieRecommendations(tId);
-  //     // assert
-  //     verify(mockRemoteDataSource.getMovieRecommendations(tId));
-  //     expect(result,
-  //         equals(Left(ConnectionFailure('Failed to connect to the network'))));
-  //   });
-  // });
-
   group('Seach Tv', () {
     final tQuery = 'chicago fire tv';
 
@@ -360,50 +314,50 @@ void main() {
     });
   });
 
-  // group('remove watchlist', () {
-  //   test('should return success message when remove successful', () async {
-  //     // arrange
-  //     when(mockLocalDataSource.removeWatchlist(testMovieTable))
-  //         .thenAnswer((_) async => 'Removed from watchlist');
-  //     // act
-  //     final result = await repository.removeWatchlist(testMovieDetail);
-  //     // assert
-  //     expect(result, Right('Removed from watchlist'));
-  //   });
+  group('remove watchlist', () {
+    test('should return success message when remove successful', () async {
+      // arrange
+      when(mockLocalDataSource.removeWatchlistTv(testTvTable))
+          .thenAnswer((_) async => 'Removed from watchlist');
+      // act
+      final result = await repository.removeWatchlistTv(testTvDetail);
+      // assert
+      expect(result, Right('Removed from watchlist'));
+    });
 
-  //   test('should return DatabaseFailure when remove unsuccessful', () async {
-  //     // arrange
-  //     when(mockLocalDataSource.removeWatchlist(testMovieTable))
-  //         .thenThrow(DatabaseException('Failed to remove watchlist'));
-  //     // act
-  //     final result = await repository.removeWatchlist(testMovieDetail);
-  //     // assert
-  //     expect(result, Left(DatabaseFailure('Failed to remove watchlist')));
-  //   });
-  // });
+    test('should return DatabaseFailure when remove unsuccessful', () async {
+      // arrange
+      when(mockLocalDataSource.removeWatchlistTv(testTvTable))
+          .thenThrow(DatabaseException('Failed to remove watchlist'));
+      // act
+      final result = await repository.removeWatchlistTv(testTvDetail);
+      // assert
+      expect(result, Left(DatabaseFailure('Failed to remove watchlist')));
+    });
+  });
 
-  // group('get watchlist status', () {
-  //   test('should return watch status whether data is found', () async {
-  //     // arrange
-  //     final tId = 1;
-  //     when(mockLocalDataSource.getMovieById(tId)).thenAnswer((_) async => null);
-  //     // act
-  //     final result = await repository.isAddedToWatchlist(tId);
-  //     // assert
-  //     expect(result, false);
-  //   });
-  // });
+  group('get watchlist status', () {
+    test('should return watch status whether data is found', () async {
+      // arrange
+      final tId = 1;
+      when(mockLocalDataSource.getTvById(tId)).thenAnswer((_) async => null);
+      // act
+      final result = await repository.isAddedToWatchlistTv(tId);
+      // assert
+      expect(result, false);
+    });
+  });
 
-  // group('get watchlist movies', () {
-  //   test('should return list of Movies', () async {
-  //     // arrange
-  //     when(mockLocalDataSource.getWatchlistMovies())
-  //         .thenAnswer((_) async => [testMovieTable]);
-  //     // act
-  //     final result = await repository.getWatchlistMovies();
-  //     // assert
-  //     final resultList = result.getOrElse(() => []);
-  //     expect(resultList, [testWatchlistMovie]);
-  //   });
-  // });
+  group('get watchlist movies', () {
+    test('should return list of Movies', () async {
+      // arrange
+      when(mockLocalDataSource.getWatchlistTv())
+          .thenAnswer((_) async => [testTvTable]);
+      // act
+      final result = await repository.getWatchlistTv();
+      // assert
+      final resultList = result.getOrElse(() => []);
+      expect(resultList, [testWatchlistTv]);
+    });
+  });
 }
