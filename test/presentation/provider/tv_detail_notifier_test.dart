@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
+import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/usecases/get_tv_detail.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/usecases/get_tv_recommendations.dart';
@@ -50,28 +51,28 @@ void main() {
 
   final tId = 1;
 
-  // final tMovie = Movie(
-  //   adult: false,
-  //   backdropPath: 'backdropPath',
-  //   genreIds: [1, 2, 3],
-  //   id: 1,
-  //   originalTitle: 'originalTitle',
-  //   overview: 'overview',
-  //   popularity: 1,
-  //   posterPath: 'posterPath',
-  //   releaseDate: 'releaseDate',
-  //   title: 'title',
-  //   video: false,
-  //   voteAverage: 1,
-  //   voteCount: 1,
-  // );
-  // final tMovies = <Movie>[tMovie];
+  final tTv = Tv(
+    backdropPath: "backdropPath",
+    firstAirDate: "firstAirDate",
+    genreIds: [1, 2, 3],
+    id: 1,
+    name: "name",
+    originCountry: ["originCountry1", "originCountry1", "originCountry1"],
+    originalLanguage: "originalLanguage",
+    originalName: "originalName",
+    overview: "overview",
+    popularity: 1.0,
+    posterPath: "posterPath",
+    voteAverage: 1.0,
+    voteCount: 1,
+  );
+  final tTvList = <Tv>[tTv];
 
   void _arrangeUsecase() {
     when(mockGetTvDetail.execute(tId))
         .thenAnswer((_) async => Right(testTvDetail));
-    // when(mockGetMovieRecommendations.execute(tId))
-    //     .thenAnswer((_) async => Right(tMovies));
+    when(mockGetTvRecommendations.execute(tId))
+        .thenAnswer((_) async => Right(tTvList));
   }
 
   group('Get Tv Detail', () {
@@ -79,7 +80,7 @@ void main() {
       // arrange
       _arrangeUsecase();
       // act
-      await provider.fetchMovieDetail(tId);
+      await provider.fetchTvDetail(tId);
       // assert
       verify(mockGetTvDetail.execute(tId));
       // verify(mockGetMovieRecommendations.execute(tId));
@@ -89,7 +90,7 @@ void main() {
       // arrange
       _arrangeUsecase();
       // act
-      provider.fetchMovieDetail(tId);
+      provider.fetchTvDetail(tId);
       // assert
       expect(provider.tvState, RequestState.Loading);
       expect(listenerCallCount, 1);
@@ -99,7 +100,7 @@ void main() {
       // arrange
       _arrangeUsecase();
       // act
-      await provider.fetchMovieDetail(tId);
+      await provider.fetchTvDetail(tId);
       // assert
       expect(provider.tvState, RequestState.Loaded);
       expect(provider.tv, testTvDetail);
@@ -175,9 +176,11 @@ void main() {
       // arrange
       when(mockGetTvDetail.execute(tId))
           .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockGetTvRecommendations.execute(tId))
+          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
 
       // act
-      await provider.fetchMovieDetail(tId);
+      await provider.fetchTvDetail(tId);
       // assert
       expect(provider.tvState, RequestState.Error);
       expect(provider.message, 'Server Failure');
