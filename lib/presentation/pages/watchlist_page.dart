@@ -19,10 +19,10 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   void initState() {
     super.initState();
     Future.microtask(() =>
-        Provider.of<WatchlistMovieNotifier>(context, listen: false)
+        Provider.of<WatchlistNotifier>(context, listen: false)
             .fetchWatchlistMovies());
     Future.microtask(() =>
-        Provider.of<WatchlistMovieNotifier>(context, listen: false)
+        Provider.of<WatchlistNotifier>(context, listen: false)
             .fetchWatchlistTv());
   }
 
@@ -33,10 +33,9 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   }
 
   void didPopNext() {
-    Provider.of<WatchlistMovieNotifier>(context, listen: false)
+    Provider.of<WatchlistNotifier>(context, listen: false)
         .fetchWatchlistMovies();
-    Provider.of<WatchlistMovieNotifier>(context, listen: false)
-        .fetchWatchlistTv();
+    Provider.of<WatchlistNotifier>(context, listen: false).fetchWatchlistTv();
   }
 
   @override
@@ -56,7 +55,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
                 "Movie",
                 style: titleLarge,
               ),
-              Consumer<WatchlistMovieNotifier>(
+              Consumer<WatchlistNotifier>(
                 builder: (context, data, child) {
                   if (data.watchlistMovieState == RequestState.Loading) {
                     return Center(
@@ -90,7 +89,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
                 "Tv",
                 style: titleLarge,
               ),
-              Consumer<WatchlistMovieNotifier>(
+              Consumer<WatchlistNotifier>(
                 builder: (context, data, child) {
                   if (data.watchlistTvState == RequestState.Loading) {
                     return Center(

@@ -5,7 +5,7 @@ import 'package:ditonton/domain/usecases/get_watchlist_movies.dart';
 import 'package:ditonton/domain/usecases/get_watchlist_tv.dart';
 import 'package:flutter/foundation.dart';
 
-class WatchlistMovieNotifier extends ChangeNotifier {
+class WatchlistNotifier extends ChangeNotifier {
   var _watchlistMovies = <Movie>[];
   List<Movie> get watchlistMovies => _watchlistMovies;
 
@@ -21,7 +21,7 @@ class WatchlistMovieNotifier extends ChangeNotifier {
   String _message = '';
   String get message => _message;
 
-  WatchlistMovieNotifier({
+  WatchlistNotifier({
     required this.getWatchlistMovies,
     required this.getWatchlistTv,
   });

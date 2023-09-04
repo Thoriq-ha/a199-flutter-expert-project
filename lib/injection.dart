@@ -86,7 +86,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => WatchlistMovieNotifier(
+    () => WatchlistNotifier(
       getWatchlistMovies: locator(),
       getWatchlistTv: locator(),
     ),

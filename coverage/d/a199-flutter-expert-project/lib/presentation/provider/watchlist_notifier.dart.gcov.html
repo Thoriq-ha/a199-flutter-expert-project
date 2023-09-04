@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">17</td>
             <td class="headerCovTableEntry">32</td>
-            <td class="headerCovTableEntryLo">53.1 %</td>
+            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-09-04 10:13:12</td>
+            <td class="headerValue">2023-09-04 10:25:57</td>
             <td></td>
           </tr>
           <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -63,7 +63,7 @@
 <a name="5"><span class="lineNum">       5 </span>            : import 'package:ditonton/domain/usecases/get_watchlist_tv.dart';</a>
 <a name="6"><span class="lineNum">       6 </span>            : import 'package:flutter/foundation.dart';</a>
 <a name="7"><span class="lineNum">       7 </span>            : </a>
-<a name="8"><span class="lineNum">       8 </span>            : class WatchlistMovieNotifier extends ChangeNotifier {</a>
+<a name="8"><span class="lineNum">       8 </span>            : class WatchlistNotifier extends ChangeNotifier {</a>
 <a name="9"><span class="lineNum">       9 </span>            :   var _watchlistMovies = &lt;Movie&gt;[];</a>
 <a name="10"><span class="lineNum">      10 </span><span class="lineCov">          4 :   List&lt;Movie&gt; get watchlistMovies =&gt; _watchlistMovies;</span></a>
 <a name="11"><span class="lineNum">      11 </span>            : </a>
@@ -71,15 +71,15 @@
 <a name="13"><span class="lineNum">      13 </span><span class="lineCov">          4 :   RequestState get watchlistMovieState =&gt; _watchlistMovieState;</span></a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
 <a name="15"><span class="lineNum">      15 </span>            :   var _watchlistTv = &lt;Tv&gt;[];</a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineNoCov">          0 :   List&lt;Tv&gt; get watchlistTv =&gt; _watchlistTv;</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          4 :   List&lt;Tv&gt; get watchlistTv =&gt; _watchlistTv;</span></a>
 <a name="17"><span class="lineNum">      17 </span>            : </a>
 <a name="18"><span class="lineNum">      18 </span>            :   var _watchlistTvState = RequestState.Empty;</a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineNoCov">          0 :   RequestState get watchlistTvState =&gt; _watchlistTvState;</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          4 :   RequestState get watchlistTvState =&gt; _watchlistTvState;</span></a>
 <a name="20"><span class="lineNum">      20 </span>            : </a>
 <a name="21"><span class="lineNum">      21 </span>            :   String _message = '';</a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">          4 :   String get message =&gt; _message;</span></a>
 <a name="23"><span class="lineNum">      23 </span>            : </a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          2 :   WatchlistMovieNotifier({</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          2 :   WatchlistNotifier({</span></a>
 <a name="25"><span class="lineNum">      25 </span>            :     required this.getWatchlistMovies,</a>
 <a name="26"><span class="lineNum">      26 </span>            :     required this.getWatchlistTv,</a>
 <a name="27"><span class="lineNum">      27 </span>            :   });</a>
@@ -106,21 +106,21 @@
 <a name="48"><span class="lineNum">      48 </span>            :     );</a>
 <a name="49"><span class="lineNum">      49 </span>            :   }</a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineNoCov">          0 :   Future&lt;void&gt; fetchWatchlistTv() async {</span></a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineNoCov">          0 :     _watchlistTvState = RequestState.Loading;</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineNoCov">          0 :     notifyListeners();</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">          2 :   Future&lt;void&gt; fetchWatchlistTv() async {</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">          2 :     _watchlistTvState = RequestState.Loading;</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          2 :     notifyListeners();</span></a>
 <a name="54"><span class="lineNum">      54 </span>            : </a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineNoCov">          0 :     final result = await getWatchlistTv.execute();</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineNoCov">          0 :     result.fold(</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineNoCov">          0 :       (failure) {</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineNoCov">          0 :         _watchlistTvState = RequestState.Error;</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineNoCov">          0 :         _message = failure.message;</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 :         notifyListeners();</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">          4 :     final result = await getWatchlistTv.execute();</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">          2 :     result.fold(</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          2 :       (failure) {</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">          2 :         _watchlistTvState = RequestState.Error;</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">          4 :         _message = failure.message;</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">          2 :         notifyListeners();</span></a>
 <a name="61"><span class="lineNum">      61 </span>            :       },</a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineNoCov">          0 :       (tvData) {</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineNoCov">          0 :         _watchlistTvState = RequestState.Loaded;</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :         _watchlistTv = tvData;</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :         notifyListeners();</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">          2 :       (tvData) {</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">          2 :         _watchlistTvState = RequestState.Loaded;</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">          2 :         _watchlistTv = tvData;</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">          2 :         notifyListeners();</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :       },</a>
 <a name="67"><span class="lineNum">      67 </span>            :     );</a>
 <a name="68"><span class="lineNum">      68 </span>            :   }</a>
